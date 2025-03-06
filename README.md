@@ -52,8 +52,6 @@ module.exports = {
   },
 };
 ```
-```
-```
 
 Create a **src/** directory and add the files needed. E.g: index.html style.css app.js
 ## Usage
