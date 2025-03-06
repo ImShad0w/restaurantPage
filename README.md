@@ -1,7 +1,3 @@
-# restaurantPage
+# Restaurant page
 
-
-A barebone restaurant page, using:
-
-- Webpack
-- ES6 Modules
+For practice in using webpack
