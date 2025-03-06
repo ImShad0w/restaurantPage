@@ -7,8 +7,7 @@ Barebone restaurant page using:
 
 ## Setup
 
-Install the following dependecies as dev:
-
+Install the following dependencies as dev:
 ```bash
 npm install --save-dev webpack webpack-cli
 npm install --save-dev html-webpack-plugin
@@ -16,6 +15,47 @@ npm install --save-dev style-loader css-loader
 npm install --save-dev html-loader
 ```
 
+Create a webpack.config.js file with a structure like so:
+
+```javascript
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  mode: "development",
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+    ],
+  },
+};
+```
+```
+```
+
+Create a **src/** directory and add the files needed. E.g: index.html style.css app.js
 ## Usage
 
 To **bundle** the page use:
